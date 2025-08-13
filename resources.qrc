@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/exportar_pontos">
+        <file>icon.png</file>
+    </qresource>
+</RCC>

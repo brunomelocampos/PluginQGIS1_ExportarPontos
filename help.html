@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - Exportar Dados Geométricos para TXT</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--dark-color);
+            margin-top: 20px;
+        }
+        
+        code {
+            background-color: var(--light-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+        }
+        
+        .note {
+            background-color: #fffde7;
+            padding: 10px 15px;
+            border-left: 4px solid #ffd600;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning {
+            background-color: #ffebee;
+            padding: 10px 15px;
+            border-left: 4px solid var(--accent-color);
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .success {
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-left: 4px solid var(--success-color);
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ajuda - Exportar Dados Geométricos para TXT</h1>
+
+        <div class="feature-card">
+            <p>Este plugin permite exportar as coordenadas e atributos de camadas vetoriais (pontos, linhas ou polígonos) para um arquivo de texto tabulado (.txt).</p>
+        </div>
+
+        <h2>Funcionalidades Principais</h2>
+        
+        <div class="feature-card">
+            <h3>Camada de Entrada</h3>
+            <p>Selecione qualquer camada vetorial (pontos, linhas ou polígonos) que você deseja exportar.</p>
+            <div class="note">
+                <strong>Nota:</strong> Para linhas e polígonos, o plugin automaticamente:
+                <ul>
+                    <li>Cria índice espacial para otimização</li>
+                    <li>Extrai todos os vértices</li>
+                    <li>Remove geometrias duplicadas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <h3>Processamento de Dados</h3>
+            <ul>
+                <li><strong>Apenas Feições selecionadas:</strong> Exporta apenas os elementos que estão selecionados na camada.</li>
+                <li><strong>Índice Espacial Automático:</strong> Melhora a performance durante o processamento.</li>
+                <li><strong>Transformação de Coordenadas:</strong> Converte para o SRC de saída especificado.</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h3>Atributos dos Pontos</h3>
+            <ul>
+                <li><strong>Nome do Ponto:</strong> Escolha o campo da tabela de atributos como identificador.</li>
+                <li><strong>Descrição (opcional):</strong> Adicione um campo descritivo adicional.</li>
+                <div class="note">
+                    Para vértices de linhas/polígonos, o índice do vértice é usado como nome padrão.
+                </div>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h3>Coordenada Z</h3>
+            <ul>
+                <li><strong>Usar Z da geometria:</strong> Disponível apenas para geometrias 3D (PointZ, LineStringZ, etc.)</li>
+                <li><strong>Usar Z de um DEM:</strong> Extrai elevação de um raster selecionado.</li>
+                <li><strong>Usar Z de um campo:</strong> Utiliza valores numéricos de um campo da tabela.</li>
+            </ul>
+            <div class="warning">
+                <strong>Atenção:</strong> A opção "Usar Z da geometria" será desativada automaticamente se a camada não tiver dimensão Z.
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <h3>Configurações de Saída</h3>
+            <ul>
+                <li><strong>SRC de Saída:</strong> Define o sistema de coordenadas para o arquivo final.</li>
+                <li><strong>Ordem das Colunas:</strong> Escolha entre X/Y ou Y/X.</li>
+                <li><strong>Separador Decimal:</strong> Ponto (.) ou Vírgula (,) para valores decimais.</li>
+                <li><strong>Precisão Numérica:</strong>
+                    <ul>
+                        <li><strong>Natural:</strong> Mantém a precisão original</li>
+                        <li><strong>Arredondada:</strong> Arredonda para N casas decimais</li>
+                        <li><strong>Truncada:</strong> Corta para N casas decimais sem arredondar</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="success">
+                <strong>Dica:</strong> O arquivo de saída é formatado com tabulações entre colunas para fácil importação em planilhas.
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <h3>Arquivo de Saída</h3>
+            <p>Escolha o local e nome do arquivo .txt que será gerado. O formato do arquivo inclui:</p>
+            <pre style="background: #f5f5f5; padding: 10px; border-radius: 5px;">
+Nome[TAB]Descrição[TAB]X[TAB]Y[TAB]Z
+Ponto1[TAB]Descrição1[TAB]123.456[TAB]456.789[TAB]100.0
+Vértice2[TAB][TAB]124.567[TAB]457.890[TAB]101.5</pre>
+            <p>As colunas Descrição e Z são opcionais e aparecem apenas quando configuradas.</p>
+        </div>
+
+        <h2>Fluxo de Processamento</h2>
+        <ol>
+            <li>Selecionar camada de entrada (pontos, linhas ou polígonos)</li>
+            <li>Criar índice espacial (automático)</li>
+            <li>Para linhas/polígonos: extrair vértices e remover duplicados</li>
+            <li>Transformar coordenadas para o SRC de saída</li>
+            <li>Aplicar formatação e precisão numérica</li>
+            <li>Gerar arquivo TXT tabulado</li>
+        </ol>
+    </div>
+</body>
+</html>

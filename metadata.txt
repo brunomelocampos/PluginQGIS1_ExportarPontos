@@ -1,0 +1,10 @@
+[general]
+name=ExportarPontos
+description=Exporta coordendas de pontos para TXT separado por tabulação
+version=1.0
+qgisMinimumVersion=3.10
+author=Bruno Melo Campos & Ilton Marcos Soares Freitas
+email=brunomelocampos@gmail.com, iltonmsfreitas@gmail.com
+about=Plugin para exportar coordenadas e atributos de pontos para arquivo .txt
+icon=icon.png
+category=Vector
