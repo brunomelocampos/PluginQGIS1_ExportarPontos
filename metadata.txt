@@ -8,3 +8,7 @@ email=brunomelocampos@gmail.com, iltonmsfreitas@gmail.com
 about=Plugin para exportar coordenadas e atributos de pontos para arquivo .txt
 icon=icon.png
 category=Vector
+homepage=https://github.com/brunomelocampos/PluginQGIS1_ExportarPontos
+repository=https://github.com/brunomelocampos/PluginQGIS1_ExportarPontos
+tracker=https://github.com/brunomelocampos/PluginQGIS1_ExportarPontos/issues
+license=MIT
